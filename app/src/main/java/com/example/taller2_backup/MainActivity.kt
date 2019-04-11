@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import com.example.taller2_backup.pojo.CountryInfo
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         setSupportActionBar(nav_toolbar)
         val actionBar = supportActionBar
@@ -57,12 +59,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initRecycler() {
-        viewManager = LinearLayoutManager(this)
         viewAdapter = CountryAdapter(country)
+        var layoutManagerTest: GridLayoutManager = GridLayoutManager(this, 1)
 
         rv_list_monedas.apply {
             setHasFixedSize(true)
-            layoutManager = viewManager
+            layoutManager = layoutManagerTest
             adapter = viewAdapter
         }
 
