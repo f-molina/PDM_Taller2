@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(nav_toolbar)
         val actionBar = supportActionBar
-        actionBar?.title = "Toolbar"
+        actionBar?.title = "Menu"
 
         val drawerToggle = ActionBarDrawerToggle(
                 this,
