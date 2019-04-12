@@ -1,5 +1,6 @@
 package com.example.taller2_backup
 
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +34,13 @@ class CountryAdapter(val items: List<CountryInfo>): RecyclerView.Adapter<Country
         fun bind(item:CountryInfo)= with(itemView){
             country_name.text= item.ambito
             country_detail.text = item.nombre
+
+            this.setOnClickListener {
+                var mIntent = Intent(it.context,  SecondActivity:: class.java)
+                mIntent.putExtra("key_nombre", item.nombre)
+                mIntent.putExtra("key_ambito", item.ambito)
+                this.context.startActivity(mIntent)
+            }
         }
     }
 }
