@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,8 +12,7 @@
      android:layout_height="wrap_content"
      android:layout_marginTop="20dp" />
 </FrameLayout>
-=======
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -80,4 +78,4 @@
     </RelativeLayout>
 
 </RelativeLayout>
->>>>>>> refs/remotes/origin/master
+>>>>>>> refs/remotes/origin/master-->

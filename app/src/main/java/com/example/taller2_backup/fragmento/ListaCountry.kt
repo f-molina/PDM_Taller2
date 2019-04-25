@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentTransaction
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -12,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.example.taller2_backup.CoinInfoFragment
 import com.example.taller2_backup.CountryAdapter
 
 import com.example.taller2_backup.R
@@ -39,23 +41,49 @@ class ListaCountry : Fragment() {
 
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        FetchPokemonTask().execute()
+        isLandscape = fragmentHelper.getIsContainerVisible()
+        if(savedInstanceState!=null){
+            currentPosition = savedInstanceState.getInt("INDEX",0)
+        }
+
+    }
+
+    val clickListener = fun(itemIndex:Int){
+        val item = moneda.get(itemIndex)
+        if(!isLandscape){
+            val i = fragmentHelper.getMainIntent()
+            i.putExtra("name",item.nombre)
+            i.putExtra("ambito",item.ambito)
+            startActivity(i)
+
+        }
+        else{
+            val coinInfoFragment = CoinInfoFragment.newInstance(item.nombre,item.ambito)
+            val fragmentTransaction = fragmentHelper.getFragmentTransaction()
+            fragmentTransaction.replace(R.id.info_container,coinInfoFragment)
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            fragmentTransaction.commit()
+        }
+    }
+
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_lista_country, container, false)
-        FetchPokemonTask().execute()
-        return view
+        return inflater.inflate(R.layout.fragment_lista_country, container, false)
     }
 
     fun initRecycler() {
         customLayoutManager = fragmentHelper.returnLayoutManager()
-        countryAdapter = CountryAdapter(moneda)
+        countryAdapter = CountryAdapter(moneda,clickListener)
         val rvListaMonedas = fragmentHelper.returnRecyclerView()
         rvListaMonedas.apply {
             setHasFixedSize(true)
-                layoutManager = customLayoutManager
+            layoutManager = customLayoutManager
             adapter = countryAdapter
         }
 
