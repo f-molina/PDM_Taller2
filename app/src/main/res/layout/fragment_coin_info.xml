@@ -3,66 +3,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CoinInfoFragment">
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:tools="http://schemas.android.com/tools"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:orientation="vertical"
-                    tools:context=".CoinInfoFragment">
+    tools:context=".fragmento.CoinInfoFragment">
 
-            <android.support.v7.widget.CardView
-                    android:id="@+id/cv_detail"
-                app:cardBackgroundColor="@color/blue_toolbar"
-                    android:layout_width="match_parent"
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".fragmento.CoinInfoFragment">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="16dp"
+            app:cardBackgroundColor="@color/blue_toolbar"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:id="@+id/lv_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_fragment_name"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="100dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="0dp"
-                    >
+                    android:text="hola"
+                    android:textColor="@color/font_white"
+                    android:textSize="65dp" />
 
-                <LinearLayout
-                        android:id="@+id/lv_detail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp"
-                        android:layout_marginTop="120dp"
-                        android:gravity="center">
-
-                    <TextView
-                            android:id="@+id/tv_fragment_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="65dp"
-                            android:textColor="@color/font_white"
-                            android:text="hola"/>
-
-                    <TextView
-                            android:id="@+id/tv_fragment_ambito"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="65dp"
-                            android:textColor="@color/font_white"
-                            android:text="hola"/>
+                <TextView
+                    android:id="@+id/tv_fragment_ambito"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hola"
+                    android:textColor="@color/font_white"
+                    android:textSize="65dp" />
 
 
-                </LinearLayout>
+            </LinearLayout>
 
 
-            </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
 
-            <ImageView
-                android:id="@+id/coin_image"
-                android:src="@drawable/ic_launcher_background"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="20dp"
-                android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:id="@+id/coin_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_launcher_background" />
 
 
-        </RelativeLayout>
+    </RelativeLayout>
 
-    </FrameLayout>
+</FrameLayout>
