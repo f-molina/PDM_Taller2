@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import com.example.taller2_backup.helpers.FragmentHelper
 import com.example.taller2_backup.network.Network
 import com.example.taller2_backup.pojo.CountryInfo
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,15 +17,16 @@ import org.json.JSONObject
 import java.io.IOException
 import java.net.URL
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
-    private lateinit var moneda: MutableList<CountryInfo>
+class MainActivity : AppCompatActivity(),FragmentHelper {
+
+
+    lateinit var rvListaMonedas:RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        rvListaMonedas = findViewById(R.id.rv_list_monedas)
 
         setSupportActionBar(nav_toolbar)
         val actionBar = supportActionBar
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         drawer_layout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
-        FetchPokemonTask().execute()
+
 
 
     }
@@ -57,57 +58,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun initRecycler() {
-        viewManager = GridLayoutManager(this, 1)
-        viewAdapter = CountryAdapter(moneda)
-
-        rv_list_monedas.apply {
-            setHasFixedSize(true)
-            layoutManager = viewManager
-            adapter = viewAdapter
-        }
-
+    override fun returnLayoutManager(): GridLayoutManager {
+        return GridLayoutManager(this,1)
     }
-    private inner class FetchPokemonTask : AsyncTask<Void, Void, String>() {
-        override fun doInBackground(vararg params: Void?): String? {
-
-
-            // val ID = pokemonNumbers[0]
-
-            val prueba = Network.Factory
-
-            //Por que?? !!
-            val pokeAPI: URL = prueba.buildUrl()!!
-
-            return try {
-                prueba.getResponseFromHttpUrl(pokeAPI)
-
-            } catch (e: IOException) {
-                e.printStackTrace()
-                ""
-            }
-        }
-
-        override fun onPostExecute(pokemonInfo: String?) {
-            if (pokemonInfo != null || pokemonInfo != "") {
-                Log.d("Info", pokemonInfo + "")
-
-                val jObj = JSONObject(pokemonInfo)
-                val jObjresult = jObj.getJSONArray("moneda")
-                moneda = MutableList(10) { i ->
-                    Log.d("prueba", i.toString())
-                    val jObjresultobj = JSONObject(jObjresult[i].toString())
-
-                    CountryInfo(jObjresultobj.getString("ambito"), jObjresultobj.getString("nombre"),
-                            jObjresultobj.getString("logo"))
-
-                }
-                initRecycler()
-            } else {
-                country_name.text = pokemonInfo
-            }
-
-        }
-
+    override fun returnRecyclerView(): RecyclerView {
+        return rvListaMonedas
     }
+
+
+
+
 }
