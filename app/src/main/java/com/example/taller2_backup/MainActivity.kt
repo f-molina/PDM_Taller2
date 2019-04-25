@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(),FragmentHelper {
         rvListaMonedas = findViewById(R.id.rv_list_monedas)
         infoContainer = findViewById(R.id.info_container)
 
-        /*setSupportActionBar(nav_toolbar)
+        setSupportActionBar(nav_toolbar)
         val actionBar = supportActionBar
         actionBar?.title = "Menu"
 
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(),FragmentHelper {
                 R.string.navigation_drawer_close
         )
 
-        //Aqui se "inicializa" el icono del menu
+        /*//Aqui se "inicializa" el icono del menu
         drawerToggle.isDrawerIndicatorEnabled = true
         drawer_layout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()*/
