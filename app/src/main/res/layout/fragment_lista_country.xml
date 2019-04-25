@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:orientation="vertical"
-             tools:context=".fragmento.ListaCountry">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                tools:context=".fragmento.ListaCountry">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="50dp"
+            android:layout_height="wrap_content">
 
-            android:id="@+id/tv_fragment_name"/>
+        <androidx.cardview.widget.CardView
+                android:id="@+id/cv_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="100dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                >
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="50dp"
+            <LinearLayout
+                    android:id="@+id/lv_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_marginTop="120dp"
+                    android:gravity="center">
 
-            android:id="@+id/tv_fragment_ambito"/>
+                <TextView
+                        android:id="@+id/tv_fragment_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="65dp"
+                        android:textColor="@color/font_white"
+                        android:text="hola"/>
 
-</LinearLayout>
+                <TextView
+                        android:id="@+id/tv_fragment_ambito"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="65dp"
+                        android:textColor="@color/font_white"
+                        android:text="hola"/>
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
