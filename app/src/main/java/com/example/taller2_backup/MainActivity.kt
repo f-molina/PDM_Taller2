@@ -47,23 +47,23 @@ class MainActivity : AppCompatActivity(),FragmentHelper {
                 R.string.navigation_drawer_close
         )
 
-        /*//Aqui se "inicializa" el icono del menu
+        //Aqui se "inicializa" el icono del menu
         drawerToggle.isDrawerIndicatorEnabled = true
         drawer_layout.addDrawerListener(drawerToggle)
-        drawerToggle.syncState()*/
+        drawerToggle.syncState()
 
 
 
 
     }
 
-    /*override fun onBackPressed() {
+    override fun onBackPressed() {
         if(drawer_layout.isDrawerOpen(GravityCompat.START)){
             drawer_layout.closeDrawer(GravityCompat.START)
         }else{
             super.onBackPressed()
         }
-    }*/
+    }
 
     override fun returnLayoutManager(): GridLayoutManager {
         return GridLayoutManager(this,1)

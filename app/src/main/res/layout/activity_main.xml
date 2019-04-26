@@ -38,8 +38,8 @@
 
 
             <fragment
-                android:name="com.example.taller2_backup.fragmento.ListaCountry"
                 android:id="@+id/fragment_monedas"
+                android:name="com.example.taller2_backup.fragmento.ListaCountry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
