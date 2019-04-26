@@ -48,23 +48,6 @@ class ListaCountry : Fragment() {
 
     }
 
-    val clickListener = fun(itemIndex:Int){
-        val item = moneda.get(itemIndex)
-        if(!isLandscape){
-            val i = fragmentHelper.getMainIntent()
-            i.putExtra("name",item.nombre)
-            i.putExtra("ambito",item.ambito)
-            startActivity(i)
-
-        }
-        else{
-            val coinInfoFragment = CoinInfoFragment.newInstance(item.nombre,item.ambito)
-            val fragmentTransaction = fragmentHelper.getFragmentTransaction()
-            fragmentTransaction.replace(R.id.info_container,coinInfoFragment)
-            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            fragmentTransaction.commit()
-        }
-    }
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -84,6 +67,23 @@ class ListaCountry : Fragment() {
             adapter = countryAdapter
         }
 
+    }
+    val clickListener = fun(itemIndex:Int){
+        val item = moneda.get(itemIndex)
+        if(!isLandscape){
+            val i = fragmentHelper.getMainIntent()
+            i.putExtra("name",item.nombre)
+            i.putExtra("ambito",item.ambito)
+            startActivity(i)
+
+        }
+        else{
+            val coinInfoFragment = CoinInfoFragment.newInstance(item.nombre,item.ambito)
+            val fragmentTransaction = fragmentHelper.getFragmentTransaction()
+            fragmentTransaction.replace(R.id.info_container,coinInfoFragment)
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            fragmentTransaction.commit()
+        }
     }
 
     private inner class FetchPokemonTask : AsyncTask<Void, Void, String>() {
