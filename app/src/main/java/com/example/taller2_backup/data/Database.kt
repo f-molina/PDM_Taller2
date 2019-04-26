@@ -46,4 +46,6 @@ class Database(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
     }
 }
 
+//Vaya mae entonces ahora lo que podemos avanzar mas es solo poner el onUpgrade de SQLite, y los import
+//para que quede algo ps xd
 

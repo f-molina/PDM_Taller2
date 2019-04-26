@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
+import com.example.taller2_backup.data.Database
 import com.example.taller2_backup.helpers.FragmentHelper
 import com.example.taller2_backup.network.Network
 import com.example.taller2_backup.pojo.CountryInfo
@@ -24,9 +25,16 @@ import java.net.URL
 class MainActivity : AppCompatActivity(),FragmentHelper {
 
 
-
+    var dbHelper = Database(this)
     lateinit var rvListaMonedas:RecyclerView
     var infoContainer:FrameLayout? = null
+
+
+    override fun onDestroy()
+    {
+        dbHelper.close()
+        super.onDestroy()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,3 +95,5 @@ class MainActivity : AppCompatActivity(),FragmentHelper {
     }
 
 }
+
+//Vaya mae solo eso de ahi es cuando empieza el proceso de cargar mediante sql xd
